@@ -4,6 +4,8 @@ A full-stack stock trading simulation platform built with **Spring Boot**, **Mon
 
 ---
 
+## Live Project Link - https://codealpha-stock-trading-platform.onrender.com
+
 ## 🚀 Features
 
 - 📊 **Live Market Dashboard** — 10 stocks with prices that auto-update every 10 seconds
