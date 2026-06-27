@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockTrader Pro</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-brand">📈 StockTrader Pro</div>
+    <div class="nav-user" id="navUser">
+        <span id="navUsername">Not logged in</span>
+        <span id="navBalance" class="balance-badge"></span>
+    </div>
+</nav>
+
+<!-- Login / Register Screen -->
+<div id="authScreen" class="screen active">
+    <div class="auth-container">
+        <h1>StockTrader Pro</h1>
+        <p class="subtitle">Simulate real stock trading with $10,000 virtual cash</p>
+        <div class="auth-tabs">
+            <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+            <button class="tab-btn" onclick="switchTab('register')">Register</button>
+        </div>
+        <div id="loginForm">
+            <input type="text" id="loginUsername" placeholder="Username" />
+            <button class="btn-primary" onclick="login()">Login</button>
+        </div>
+        <div id="registerForm" style="display:none">
+            <input type="text" id="regUsername" placeholder="Username" />
+            <input type="email" id="regEmail" placeholder="Email" />
+            <button class="btn-primary" onclick="register()">Create Account</button>
+        </div>
+        <div id="authError" class="error-msg"></div>
+    </div>
+</div>
+
+<!-- Main App Screen -->
+<div id="appScreen" class="screen">
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('market')">🏪 Market</button>
+        <button class="tab-btn" onclick="showTab('portfolio')">💼 Portfolio</button>
+        <button class="tab-btn" onclick="showTab('history')">📋 History</button>
+    </div>
+
+    <!-- Market Tab -->
+    <div id="marketTab" class="tab-content active">
+        <h2>Live Market</h2>
+        <div class="market-grid" id="marketGrid">Loading stocks...</div>
+    </div>
+
+    <!-- Portfolio Tab -->
+    <div id="portfolioTab" class="tab-content">
+        <h2>My Portfolio</h2>
+        <div class="portfolio-summary" id="portfolioSummary"></div>
+        <div class="holdings" id="holdingsGrid"></div>
+    </div>
+
+    <!-- History Tab -->
+    <div id="historyTab" class="tab-content">
+        <h2>Transaction History</h2>
+        <table class="tx-table" id="txTable">
+            <thead>
+                <tr><th>Time</th><th>Type</th><th>Stock</th><th>Qty</th><th>Price</th><th>Total</th></tr>
+            </thead>
+            <tbody id="txBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Trade Modal -->
+<div id="tradeModal" class="modal" style="display:none">
+    <div class="modal-content">
+        <h3 id="modalTitle"></h3>
+        <p id="modalPrice"></p>
+        <p id="modalBalance"></p>
+        <input type="number" id="tradeQty" placeholder="Quantity" min="1" />
+        <p id="tradeTotal" class="trade-total"></p>
+        <div class="modal-actions">
+            <button class="btn-success" onclick="confirmTrade('buy')">Buy</button>
+            <button class="btn-danger" onclick="confirmTrade('sell')">Sell</button>
+            <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+        </div>
+        <div id="tradeError" class="error-msg"></div>
+    </div>
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
