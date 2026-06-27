@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: CodeAlpha_Stock_Trading_Platform
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SPRING_DATA_MONGODB_URI
+        sync: false
