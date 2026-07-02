@@ -24,13 +24,13 @@ public class StockService {
         if (stockRepository.count() == 0) {
             List<Stock> stocks = List.of(
                 createStock("AAPL", "Apple Inc.", 189.50, "Technology"),
-                createStock("GOOGL", "Alphabet Inc.", 175.20, "Technology"),
+                createStock("GOOGL", "Google (Alphabet Inc.)", 175.20, "Technology"),
                 createStock("MSFT", "Microsoft Corporation", 415.30, "Technology"),
-                createStock("AMZN", "Amazon.com Inc.", 185.60, "Consumer Cyclical"),
-                createStock("TSLA", "Tesla Inc.", 177.80, "Automotive"),
+                createStock("AMZN", "Amazon.com, Inc.", 185.60, "Consumer Cyclical"),
+                createStock("TSLA", "Tesla, Inc.", 177.80, "Automotive"),
                 createStock("NVDA", "NVIDIA Corporation", 875.40, "Technology"),
-                createStock("META", "Meta Platforms Inc.", 505.10, "Technology"),
-                createStock("NFLX", "Netflix Inc.", 628.90, "Communication"),
+                createStock("META", "Meta Platforms, Inc. (Facebook)", 505.10, "Technology"),
+                createStock("NFLX", "Netflix, Inc.", 628.90, "Communication"),
                 createStock("JPM",  "JPMorgan Chase & Co.", 198.70, "Financial"),
                 createStock("V",    "Visa Inc.", 276.50, "Financial")
             );
