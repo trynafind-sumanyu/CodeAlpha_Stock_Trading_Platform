@@ -21,8 +21,8 @@ public class StockService {
 
     @PostConstruct
     public void seedStocks() {
-        if (stockRepository.count() == 0) {
-            List<Stock> stocks = List.of(
+        stockRepository.deleteAll();
+        List<Stock> stocks = List.of(
                 createStock("AAPL", "Apple Inc.", 189.50, "Technology"),
                 createStock("GOOGL", "Google (Alphabet Inc.)", 175.20, "Technology"),
                 createStock("MSFT", "Microsoft Corporation", 415.30, "Technology"),
@@ -35,7 +35,6 @@ public class StockService {
                 createStock("V",    "Visa Inc.", 276.50, "Financial")
             );
             stockRepository.saveAll(stocks);
-        }
     }
 
     private Stock createStock(String symbol, String name, double price, String sector) {
